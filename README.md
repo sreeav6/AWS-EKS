@@ -25,7 +25,7 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/aws-load-bala
 
 # Use OIDC connector as AWS IAM
 
-eksctl utils associate-iam-oidc-provider --cluster <your-cluster-name> --approve
+eksctl utils associate-iam-oidc-provider --cluster (your-cluster-name) --approve
 
 # Setting alb and add on
 
