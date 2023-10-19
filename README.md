@@ -42,7 +42,7 @@ aws iam create-policy \
 # We will be creating iam role
 
 eksctl create iamserviceaccount \
-  --cluster=<your-cluster-name> \
+  --cluster= <your-cluster-name> \
   --namespace=kube-system \
   --name=aws-load-balancer-controller \
   --role-name AmazonEKSLoadBalancerControllerRole \
@@ -62,7 +62,7 @@ helm repo update eks
 #Install alb using helm
 
 helm install aws-load-balancer-controller eks/aws-load-balancer-controller -n kube-system \
-  --set clusterName=<your-cluster-name> \
+  --set clusterName= <your-cluster-name> \
   --set serviceAccount.create=false \
   --set serviceAccount.name=aws-load-balancer-controller \
   --set region=us-east-1 \
