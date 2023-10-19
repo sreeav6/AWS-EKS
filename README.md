@@ -1,7 +1,7 @@
 # Here we will deploy application to EKS
 Prerequisities that you should have kubectl and eksctl and aws cli installed in your system
 
-# First we will create eksctl cluster
+# First we will create eksctl cluster 
 eksctl create cluster --name <name of your cluster> --region us-east-1 --fargate 
 
 # Then we will update the kube config for aws to use eks
