@@ -2,13 +2,13 @@
 Prerequisities that you should have kubectl and eksctl and aws cli installed in your system
 
 # First we will create eksctl cluster 
-eksctl create cluster --name < your-cluster-name> --region us-east-1 --fargate 
+eksctl create cluster --name (your-cluster-name) --region us-east-1 --fargate 
 
 # Then we will update the kube config for aws to use eks
 aws eks update-kubeconfig --name <your-cluster-name> --region us-east-1
  
 # Create a seperate fargate profile where we use this namespace to deploy the application
-eksctl create fargateprofile --cluster <your-cluster-name> --region us-east-1 --name alb-sample-app --namespace game-2048
+eksctl create fargateprofile --cluster (your-cluster-name) --region us-east-1 --name alb-sample-app --namespace game-2048
 
 # Deploy the app which has deployment,service,ingress manifests
 kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.5.4/docs/examples/2048/2048_full.yaml
@@ -42,7 +42,7 @@ aws iam create-policy \
 # We will be creating iam role
 
 eksctl create iamserviceaccount \
-  --cluster= <your-cluster-name> \
+  --cluster= (your-cluster-name) \
   --namespace=kube-system \
   --name=aws-load-balancer-controller \
   --role-name AmazonEKSLoadBalancerControllerRole \
@@ -78,4 +78,4 @@ helm install aws-load-balancer-controller eks/aws-load-balancer-controller -n ku
   
 # Finally perform deletion (clean up)
 
-eksctl delete cluster --name <your-cluster-name> --region us-east-1
+eksctl delete cluster --name (your-cluster-name) --region us-east-1
