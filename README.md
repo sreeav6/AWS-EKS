@@ -52,12 +52,15 @@ eksctl create iamserviceaccount \
 # Deploy the alb
 
 #ADD helm repo
+
 helm repo add eks https://aws.github.io/eks-charts
 
 #Update the repo
+
 helm repo update eks
 
 #Install alb using helm
+
 helm install aws-load-balancer-controller eks/aws-load-balancer-controller -n kube-system \
   --set clusterName=<your-cluster-name> \
   --set serviceAccount.create=false \
@@ -68,8 +71,11 @@ helm install aws-load-balancer-controller eks/aws-load-balancer-controller -n ku
 # Verify the deployment is running
 
   kubectl get deployment -n kube-system aws-load-balancer-controller
+  
   #you can also see the ingress class once alb is deployed
+  
   kubectl get ingress -n game-2048
   
 # Finally perform deletion (clean up)
+
 eksctl delete cluster --name <your-cluster-name> --region us-east-1
