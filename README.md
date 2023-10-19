@@ -23,6 +23,7 @@ eksctl utils associate-iam-oidc-provider --cluster $cluster_name --approve
 
 # Setting alb and add on
 #We need to download the iam policy first
+
 curl -O https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.5.4/docs/install/iam_policy.json
 
 # We need to create iam policy
