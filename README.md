@@ -12,10 +12,15 @@ eksctl create fargateprofile --cluster <name of your cluster> --region us-east-1
 
 # Deploy the app which has deployment,service,ingress manifests
 kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.5.4/docs/examples/2048/2048_full.yaml
+
 #you can verify this with kubectl get pods -n game-2048
+
 #you can verify the service kubectl get svc -n game-2048
+
 #you can verify the deployments kubectl get deployments -n game-2048
+
 #you can verify the ingress resource kubectk get ingress -n game-2048
+
 #you can verify all kubectl get all -n game-2048
 
 # Use OIDC connector as AWS IAM
