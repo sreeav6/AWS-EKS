@@ -19,7 +19,7 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/aws-load-bala
 
 #you can verify the deployments kubectl get deployments -n game-2048
 
-#you can verify the ingress resource kubectk get ingress -n game-2048
+#you can verify the ingress resource kubectl get ingress -n game-2048
 
 #you can verify all kubectl get all -n game-2048
 
