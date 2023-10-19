@@ -2,13 +2,13 @@
 Prerequisities that you should have kubectl and eksctl and aws cli installed in your system
 
 # First we will create eksctl cluster 
-eksctl create cluster --name <name of your cluster> --region us-east-1 --fargate 
+eksctl create cluster --name < your-cluster-name> --region us-east-1 --fargate 
 
 # Then we will update the kube config for aws to use eks
-aws eks update-kubeconfig --name <name of your cluster> --region us-east-1
+aws eks update-kubeconfig --name <your-cluster-name> --region us-east-1
  
 # Create a seperate fargate profile where we use this namespace to deploy the application
-eksctl create fargateprofile --cluster <name of your cluster> --region us-east-1 --name alb-sample-app --namespace game-2048
+eksctl create fargateprofile --cluster <your-cluster-name> --region us-east-1 --name alb-sample-app --namespace game-2048
 
 # Deploy the app which has deployment,service,ingress manifests
 kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.5.4/docs/examples/2048/2048_full.yaml
@@ -25,7 +25,7 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/aws-load-bala
 
 # Use OIDC connector as AWS IAM
 
-eksctl utils associate-iam-oidc-provider --cluster $cluster_name --approve
+eksctl utils associate-iam-oidc-provider --cluster <your-cluster-name> --approve
 
 # Setting alb and add on
 
@@ -62,7 +62,7 @@ helm repo update eks
 #Install alb using helm
 
 helm install aws-load-balancer-controller eks/aws-load-balancer-controller -n kube-system \
-  --set clusterName= <your-cluster-name> \
+  --set clusterName= (your-cluster-name) \
   --set serviceAccount.create=false \
   --set serviceAccount.name=aws-load-balancer-controller \
   --set region=us-east-1 \
