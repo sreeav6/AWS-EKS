@@ -5,7 +5,7 @@ Prerequisities that you should have kubectl and eksctl and aws cli installed in 
 eksctl create cluster --name (your-cluster-name) --region us-east-1 --fargate 
 
 # Then we will update the kube config for aws to use eks
-aws eks update-kubeconfig --name <your-cluster-name> --region us-east-1
+aws eks update-kubeconfig --name (your-cluster-name) --region us-east-1
  
 # Create a seperate fargate profile where we use this namespace to deploy the application
 eksctl create fargateprofile --cluster (your-cluster-name) --region us-east-1 --name alb-sample-app --namespace game-2048
